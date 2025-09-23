@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A8E6CF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvEspecialidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Especialidades :"
+        android:textColor="#1B5E20"
+        android:textSize="34sp"
+        android:textStyle="italic|bold"
+        android:gravity="center"
+        android:shadowColor="#66000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:letterSpacing="0.05"
+        android:fontFamily="sans-serif-condensed"/>
+
+
+    <!-- Card Psicólogo -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPsicologo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="Psicólogo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_psicologo" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Card Nutricionista -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNutricionista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="Nutricionista"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_nutricao" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="74dp" />
+
+    <TextView
+        android:id="@+id/tvFrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="Ciência, cuidado e transformação real"
+        android:textColor="#2E7D32"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        android:gravity="center"
+        android:shadowColor="#66000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="4dp"
+        android:fontFamily="sans-serif-medium"/>
+
+
+</LinearLayout>

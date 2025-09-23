@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informações de acesso"
+            android:textSize="20sp"
+            android:textColor="#1A2B4C"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Nome completo -->
+        <EditText
+            android:id="@+id/edtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Qual seu nome?"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            android:drawableEnd="@android:drawable/ic_menu_edit"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Telefone -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+55"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/edtTelefone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Qual seu telefone?"
+                android:inputType="phone"
+                android:importantForAutofill="no"
+                android:autofillHints="" />
+        </LinearLayout>
+
+        <!-- Switch - Resido fora do Brasil -->
+        <Switch
+            android:id="@+id/switchResideFora"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Resido fora do Brasil"
+            android:layout_marginBottom="12dp" />
+
+        <!-- CPF -->
+        <EditText
+            android:id="@+id/edtCpf"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Informe o CPF"
+            android:inputType="number"
+            android:maxLength="11"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            android:layout_marginBottom="12dp" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Qual seu email?"
+            android:inputType="textEmailAddress"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            android:layout_marginBottom="12dp" />
+
+        <!-- Senha -->
+        <EditText
+            android:id="@+id/edtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Informe a senha"
+            android:inputType="textPassword"
+            android:minEms="8"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Repetir Senha -->
+        <EditText
+            android:id="@+id/edtRepetirSenha"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Repita a senha"
+            android:inputType="textPassword"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Botão Cadastrar -->
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar"
+            android:backgroundTint="#1A73E8"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light" />
+
+    </LinearLayout>
+</ScrollView>

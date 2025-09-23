@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A8E6CF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgFoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginEnd="8dp"
+                android:background="#FFFFFF"
+                android:clipToOutline="true"
+                android:contentDescription="Foto do Profissional"
+                android:elevation="4dp"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <Button
+                android:id="@+id/btnFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:backgroundTint="#34A853"
+                android:padding="12dp"
+                android:text="Adicionar Foto"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Nome -->
+        <EditText
+            android:id="@+id/etNome"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Nome"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"
+            android:textColorHint="#555555"
+            android:inputType="textPersonName"
+            android:elevation="2dp"/>
+
+        <!-- Cadastro Profissional -->
+        <EditText
+            android:id="@+id/etCadastroProfissional"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Número/Registro no Conselho"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"
+            android:textColorHint="#555555"
+            android:inputType="number"
+            android:elevation="2dp"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Email"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#000000"
+            android:textColorHint="#555555"
+            android:inputType="textEmailAddress"
+            android:elevation="2dp"/>
+
+        <!-- Telefone + Valor lado a lado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/etTelefone"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Telefone"
+                android:background="@android:color/white"
+                android:padding="12dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555"
+                android:inputType="number"
+                android:elevation="2dp"
+                android:layout_marginEnd="4dp"/>
+
+            <EditText
+                android:id="@+id/etValor"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Valor do Atendimento"
+                android:background="@android:color/white"
+                android:padding="3dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555"
+                android:inputType="number"
+                android:elevation="2dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Sobre mim -->
+        <EditText
+            android:id="@+id/etSobreMim"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:gravity="top"
+            android:hint="Sobre mim"
+            android:inputType="textMultiLine"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#555555" />
+
+        <!-- Especialidade -->
+        <Spinner
+            android:id="@+id/spEspecialidade"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:entries="@array/especialidade_array"
+            android:background="@android:color/white"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:elevation="2dp"/>
+
+        <!-- Abordagem + Tipo de Pagamento lado a lado -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Spinner
+                android:id="@+id/spAbordagem"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:entries="@array/abordagens_array"
+                android:background="@android:color/white"
+                android:padding="8dp"
+                android:elevation="2dp"
+                android:layout_marginEnd="4dp"/>
+
+            <Spinner
+                android:id="@+id/spTipoPagamento"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:entries="@array/pagamento_array"
+                android:background="@android:color/white"
+                android:padding="8dp"
+                android:elevation="2dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Status do Profissional"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+
+            <Switch
+                android:id="@+id/swStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:padding="8dp"
+                android:textOff="Inativo"
+                android:textOn="Ativo"
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+        <!-- Botões CRUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btnSalvar"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Salvar"
+                android:backgroundTint="#4285F4"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btnAtualizar"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Atualizar"
+                android:backgroundTint="#4285F4"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btnExcluir"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Excluir"
+                android:backgroundTint="#EA4335"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

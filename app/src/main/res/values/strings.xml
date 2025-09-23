@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">UNNOApp</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- Especialidades -->
+    <string-array name="especialidade_array">
+        <item>Especialidade</item>
+        <item>Psicólogo</item>
+        <item>Nutricionista</item>
+    </string-array>
+
+    <!-- Abordagens -->
+    <string-array name="abordagens_array">
+        <item>Abordagem</item>
+        <item>Consulta</item>
+        <item>Avaliação</item>
+    </string-array>
+
+    <!-- Tipo de Pagamento -->
+    <string-array name="pagamento_array">
+        <item>Tipo de Pagamento</item>
+        <item>Mensal</item>
+        <item>Anual</item>
+        <item>Avulso</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,34 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="#A8E6CF"
+    tools:context=".ProfissionaisActivity">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:text="Lista de Profissionais"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:textColor="#333333"
+        tools:ignore="MissingConstraints"/>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProfissionais"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A8E6CF"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        tools:itemCount="5"
+        tools:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/content_lista_profissionais" />
+</LinearLayout>
