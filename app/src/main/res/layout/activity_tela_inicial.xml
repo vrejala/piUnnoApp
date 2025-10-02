@@ -1,79 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#A8E6CF">
+    android:background="@drawable/background_gradient"
+    tools:context=".TelaInicialActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Título -->
 
-        <!-- Container com os cards -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="47dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="36dp"
+            android:background="#A8E6CF"
+            android:textStyle="italic|bold"
+            android:title=""
+            android:titleTextColor="#1B5E20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvTelaInicial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="Unno Psicologia e Nutrição"
-            android:textColor="#00796B"
+            android:textColor="#1B5E20"
             android:textSize="24sp"
             android:textStyle="italic|bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
         <LinearLayout
             android:id="@+id/containerCards"
-            android:layout_width="214dp"
-            android:layout_height="551dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTelaInicial">
 
             <!-- Card Usuário -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardUsuario"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="#005D56"
                     android:contentDescription="Cadastro de Usuário"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_usuario_fundo" />
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Card Profissional -->
+            <!-- Card Cliente -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardProfissional"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/cardCliente"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:background="#005D56"
+                    android:contentDescription="Cadastro de Cliente"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_cliente_fundo" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card Profissional -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfissional"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="#005D56"
                     android:contentDescription="Cadastro de Profissional"
@@ -84,15 +116,15 @@
             <!-- Card Especialidades -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEspecialidades"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:background="#005D56"
                     android:contentDescription="Especialidades"
@@ -109,11 +141,11 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="Ciência, cuidado e transformação real"
-            android:textColor="#00796B"
+            android:textColor="#1B5E20"
             android:textSize="18sp"
             android:textStyle="italic|bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

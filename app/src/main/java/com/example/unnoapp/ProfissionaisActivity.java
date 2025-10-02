@@ -35,32 +35,38 @@ public class ProfissionaisActivity extends AppCompatActivity {
         listaProfissionais = new ArrayList<>();
         listaProfissionais.add(new Profissional(
                 "João Silva",
-                "joao@email.com",
+                "99999",
+                "joao@gmail.com",
                 "(11) 99999-1111",
+                120f,
+                "Sou psicólogo(a) dedicado(a) a ajudar pessoas a compreenderem suas emoções, superarem desafios e desenvolverem uma vida mais equilibrada e saudável.",
+                "Psicologo",
                 "Psicanálise",
-                "120",
-                "",
-                "Psicólogo"
+                ""
         ));
 
         listaProfissionais.add(new Profissional(
                 "Maria Costa",
-                "maria@email.com",
-                "(21) 98888-2222",
+                "98888",
+                "maria@gmail.com",
+                "(11) 99998-1111",
+                150f,
+                "Sou psicólogo(a) acredito na importância da escuta empática, do acolhimento e de um espaço seguro para que cada indivíduo possa se expressar e encontrar caminhos para o autoconhecimento",
+                "Psicologo",
                 "Terapia Cognitiva",
-                "150",
-                "",
-                "Psicóloga"
+                ""
         ));
 
         listaProfissionais.add(new Profissional(
                 "Carlos Souza",
-                "carlos@email.com",
-                "(31) 97777-3333",
+                "97777",
+                "carlos@gmail.com",
+                "(71) 98803-1111",
+                100f,
+                "Sou nutricionista apaixonado(a) por promover saúde e bem-estar por meio da alimentação equilibrada e consciente.",
+                "Nutricionista",
                 "Nutrição Clínica",
-                "100",
-                "",
-                "Nutricionista"
+                ""
         ));
 
         // Passar para o Adapter

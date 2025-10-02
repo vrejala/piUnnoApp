@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A8E6CF"
+    android:background="@drawable/background_gradient"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".SplashScreenActivity">
@@ -25,7 +25,7 @@
         android:shadowDy="2"
         android:shadowRadius="4"
         android:text="BEM VINDOS!"
-        android:textColor="#2E7D32"
+        android:textColor="#FFFFFFFF"
         android:textSize="30sp"
         android:textStyle="italic|bold" />
 
@@ -57,8 +57,8 @@
         android:shadowDy="2"
         android:shadowRadius="4"
         android:text="Ciência, cuidado e transformação real"
-        android:textColor="#2E7D32"
-        android:textSize="15sp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20sp"
         android:textStyle="italic|bold" />
 
 

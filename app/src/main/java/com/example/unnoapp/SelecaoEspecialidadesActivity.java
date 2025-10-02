@@ -21,14 +21,14 @@ public class SelecaoEspecialidadesActivity extends AppCompatActivity {
         cardNutricionista = findViewById(R.id.cardNutricionista);
 
         cardPsicologo.setOnClickListener(v -> {
-            Intent intent = new Intent(SelecaoEspecialidadesActivity.this, ProfissionaisActivity.class);
-            intent.putExtra("especialidade", "Psicólogia");
+            Intent intent = new Intent(SelecaoEspecialidadesActivity.this, ListaProfissionaisActivity.class);
+            intent.putExtra("especialidade", "Psicologo");
             startActivity(intent);
         });
 
         cardNutricionista.setOnClickListener(v -> {
-            Intent intent = new Intent(SelecaoEspecialidadesActivity.this, ProfissionaisActivity.class);
-            intent.putExtra("especialidade", "Nutrição");
+            Intent intent = new Intent(SelecaoEspecialidadesActivity.this, ListaProfissionaisActivity.class);
+            intent.putExtra("especialidade", "Nutricionista");
             startActivity(intent);
         });
     }

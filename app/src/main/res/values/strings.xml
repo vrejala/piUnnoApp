@@ -5,11 +5,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="default_web_client_id">SEU_CLIENT_ID_AQUI</string>
+
 
     <!-- Especialidades -->
     <string-array name="especialidade_array">
         <item>Especialidade</item>
-        <item>Psicólogo</item>
+        <item>Psicologo</item>
         <item>Nutricionista</item>
     </string-array>
 

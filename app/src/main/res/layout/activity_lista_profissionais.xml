@@ -4,31 +4,44 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    android:background="#A8E6CF"
-    tools:context=".ProfissionaisActivity">
+    android:padding="16dp"
+    android:background="@drawable/gradient_white_green"
+    tools:context=".ListaProfissionaisActivity">
 
     <!-- Título -->
     <TextView
         android:id="@+id/txtTitulo"
         android:text="Lista de Profissionais"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:textColor="#333333"
-        tools:ignore="MissingConstraints"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="#333333"/>
+
+    <!-- Campo de pesquisa -->
+    <EditText
+        android:id="@+id/edtPesquisa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pesquisar..."
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:inputType="text"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:drawablePadding="8dp"/>
+
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProfissionais"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#A8E6CF"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
         android:paddingBottom="8dp"
-        tools:itemCount="5"
+        android:scrollbars="vertical"
+        tools:itemCount="20"
         tools:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/content_lista_profissionais" />
 </LinearLayout>
