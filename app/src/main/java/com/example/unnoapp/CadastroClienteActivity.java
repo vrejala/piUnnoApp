@@ -17,6 +17,10 @@ import com.example.unnoapp.modelo.Cliente;
 import com.example.unnoapp.util.ApiClient;
 import com.example.unnoapp.util.ApiService;
 import com.example.unnoapp.util.Util;
+import android.content.SharedPreferences;
+import com.google.gson.Gson;
+import com.example.unnoapp.modelo.Usuario;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -37,6 +41,11 @@ public class CadastroClienteActivity extends AppCompatActivity {
     private Button btnFoto, btnSalvar, btnAlterar, btnExcluir;
     private EditText etNome, etTelefone, etCpf, etEmail, etSenha;
     private EditText etEndereco, etNumero, etCep;
+    private static final String PREFS_NAME = "APP_PREFS";
+    private static final String KEY_USUARIO = "usuario";
+    private Gson gson = new Gson();
+    private ApiService apiService;
+
 
     private Uri imageUri;
     private Bitmap bitmapFoto;
@@ -62,6 +71,52 @@ public class CadastroClienteActivity extends AppCompatActivity {
         etEndereco = findViewById(R.id.etEndereco);
         etNumero = findViewById(R.id.etNumero);
         etCep = findViewById(R.id.etCep);
+
+        // Inicializa o ApiService
+        apiService = ApiClient.getApiService();
+
+    // Preencher campos do usuário logado
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String usuarioJson = prefs.getString(KEY_USUARIO, null);
+
+        if (usuarioJson != null) {
+            Usuario usuarioLogado = gson.fromJson(usuarioJson, Usuario.class);
+
+            // Preenche com nome do usuário primeiro
+            etNome.setText(usuarioLogado.getNome());
+            etEmail.setText(usuarioLogado.getEmail());
+            etSenha.setText(usuarioLogado.getSenha());
+
+            apiService.buscarClientePorUsuario(usuarioLogado.getId())
+                    .enqueue(new Callback<Cliente>() {
+                        @Override
+                        public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                            if (response.isSuccessful() && response.body() != null) {
+                                Cliente c = response.body();
+
+                                // Aqui sobrescreve com o nome do cliente, se houver
+                                if (c.getNome() != null && !c.getNome().isEmpty()) {
+                                    etNome.setText(c.getNome());
+                                }
+
+                                etTelefone.setText(c.getTelefone());
+                                etCpf.setText(c.getCpf());
+                                etEndereco.setText(c.getEndereco());
+                                etNumero.setText(c.getNumero());
+                                etCep.setText(c.getCep());
+                                clienteIdAtual = c.getId();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Cliente> call, Throwable t) {
+                            Toast.makeText(CadastroClienteActivity.this, "Falha ao carregar dados do cliente", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+
+
+
 
         // Botões
         btnFoto.setOnClickListener(v -> escolherFoto());
@@ -139,7 +194,17 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
         if (!validarCampos(nome, telefone, cpf, email, senha, endereco, numero, cep)) return null;
 
-        Cliente c = new Cliente(nome, telefone, cpf, email, senha, endereco, numero, cep);
+        SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
+        String usuarioJson = prefs.getString("usuario_logado", null);
+
+        int usuarioId = -1;
+        if (usuarioJson != null) {
+            Gson gson = new Gson();
+            Usuario usuarioLogado = gson.fromJson(usuarioJson, Usuario.class);
+            usuarioId = usuarioLogado.getId();
+        }
+
+        Cliente c = new Cliente(nome, telefone, cpf, email, senha, endereco, numero, cep, usuarioId);
         return c;
     }
 

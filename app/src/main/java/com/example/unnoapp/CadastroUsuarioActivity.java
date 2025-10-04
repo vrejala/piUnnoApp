@@ -1,6 +1,7 @@
 package com.example.unnoapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.gson.Gson;
 
 
 import retrofit2.Call;
@@ -30,6 +32,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
     private EditText etNome, etEmail, etSenha;
     private Button btnSalvar, btnCancelar;
+
+    private static final String PREFS_NAME = "APP_PREFS";
+    private static final String KEY_USUARIO = "usuario";
+    private Gson gson = new Gson();
+
 
     private ApiService apiService;
 
@@ -45,6 +52,16 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
         btnSalvar = findViewById(R.id.btnSalvar);
         btnCancelar = findViewById(R.id.btnCancelar);
+
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String usuarioJson = prefs.getString(KEY_USUARIO, null);
+
+        if (usuarioJson != null) {
+            Usuario usuarioLogado = gson.fromJson(usuarioJson, Usuario.class);
+            etNome.setText(usuarioLogado.getNome());
+            etEmail.setText(usuarioLogado.getEmail());
+        }
+
 
         apiService = ApiClient.getApiService();
 

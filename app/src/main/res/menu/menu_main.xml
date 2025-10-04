@@ -2,12 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+     <!-- Logout direto na Toolbar -->
+    <item
+        android:id="@+id/action_empresa"
+        android:icon="@drawable/ic_empresa"
+        android:title="Empresa"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_rede"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Instagram"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/action_logout"
         android:title="Logout"
-        app:showAsAction="always"
-        android:icon="@android:drawable/ic_lock_power_off" />
+        android:icon="@android:drawable/ic_lock_power_off"
+        app:showAsAction="always"/>
 
 </menu>
-
-

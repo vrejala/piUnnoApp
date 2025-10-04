@@ -70,9 +70,6 @@ public interface ApiService {
     @POST("usuarios/login/google")
     Call<Usuario> loginGoogle(@Body GoogleLoginRequest request);
 
-
-    //Cliente
-
     // Clientes
     @GET("clientes")
     Call<List<Cliente>> getClientes();
@@ -106,6 +103,10 @@ public interface ApiService {
 
     @GET("clientes/nome/{nome}")
     Call<List<Cliente>> buscarClientePorNome(@Path("nome") String nome);
+
+    @GET("clientes/usuario/{usuarioId}")
+    Call<Cliente> buscarClientePorUsuario(@Path("usuarioId") int usuarioId);
+
 
     // Profissionais
     @GET("/profissionais")

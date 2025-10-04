@@ -6,10 +6,15 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.example.unnoapp.modelo.Usuario;
+import com.google.gson.Gson;
 
 public class TelaInicialActivity extends AppCompatActivity {
 
@@ -22,6 +27,20 @@ public class TelaInicialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_inicial);
+
+        // Recuperar usuário logado
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String usuarioJson = prefs.getString(KEY_USUARIO, null);
+        Usuario usuarioLogado = null;
+        if (usuarioJson != null) {
+            usuarioLogado = new Gson().fromJson(usuarioJson, Usuario.class);
+        }
+
+        // Exemplo: mostrar Toast com o nome
+        if (usuarioLogado != null) {
+            Toast.makeText(this, "Bem-vindo " + usuarioLogado.getNome(), Toast.LENGTH_SHORT).show();
+        }
+
 
         // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -72,18 +91,40 @@ public class TelaInicialActivity extends AppCompatActivity {
     // Ações do menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_logout) {
-            // Remove usuário logado
+        int itemId = item.getItemId(); // <-- declare a variável
+
+        if (itemId == R.id.action_logout) {
+            // Logout
             SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
             editor.remove(KEY_USUARIO);
             editor.apply();
 
-            // Volta para tela de login
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
             return true;
+
+        } else if (itemId == R.id.action_rede) {
+            // Instagram
+            String instagramUrl = "https://www.instagram.com/seu_usuario/";
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(instagramUrl));
+            intent.setPackage("com.instagram.android");
+
+            try {
+                startActivity(intent);
+            } catch (android.content.ActivityNotFoundException e) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(instagramUrl));
+                startActivity(webIntent);
+            }
+            return true;
+
+        } else if (itemId == R.id.action_empresa) {
+            // Abre a tela com os dados da empresa
+            Intent intent = new Intent(this, EmpresaActivity.class);
+            startActivity(intent);
+            return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 }

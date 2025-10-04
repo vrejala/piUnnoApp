@@ -11,6 +11,7 @@ public class Cliente {
     private String endereco;
     private String numero;
     private String cep;
+    private int usuario_id;
 
 
     // Construtor vazio
@@ -18,7 +19,7 @@ public class Cliente {
 
     // Construtor completo
     public Cliente(String nome, String telefone, String cpf, String email, String senha,
-                   String endereco, String numero, String cep) {
+                   String endereco, String numero, String cep, int usuario_id) {
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
@@ -27,6 +28,7 @@ public class Cliente {
         this.endereco = endereco;
         this.numero = numero;
         this.cep = cep;
+        this.usuario_id = usuario_id;
 
     }
 
@@ -57,6 +59,8 @@ public class Cliente {
 
     public String getCep() { return cep; }
     public void setCep(String cep) { this.cep = cep; }
+    public int getUsuario_id() { return usuario_id; }
+    public void setUsuario_id(int usuario_id) { this.usuario_id = usuario_id; }
 
      // Validação de campos
     public boolean isCamposPreenchidos() {

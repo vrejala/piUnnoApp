@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_200">#A8E6CF</color>
     <color name="verde">#A8E6CF</color>
+    <color name="blue">#2196F3</color> <!-- Azul Material Design -->
+
 </resources>

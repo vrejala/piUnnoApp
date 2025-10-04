@@ -16,9 +16,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="47dp"
-            android:layout_height="21dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="147dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
             android:background="#A8E6CF"
             android:textStyle="italic|bold"
             android:title=""
@@ -32,7 +32,7 @@
             android:id="@+id/tvTelaInicial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:text="Unno Psicologia e Nutrição"
@@ -59,8 +59,8 @@
             <!-- Card Usuário -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardUsuario"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
@@ -78,8 +78,8 @@
             <!-- Card Cliente -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCliente"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
@@ -97,8 +97,8 @@
             <!-- Card Profissional -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardProfissional"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">
@@ -116,8 +116,8 @@
             <!-- Card Especialidades -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEspecialidades"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_margin="12dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp">

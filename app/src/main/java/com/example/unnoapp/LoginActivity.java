@@ -33,7 +33,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextLogin, editTextSenha;
-    private Button btnDoSignIn, btnToggle;
+    private Button btnDoSignIn, btnToggle, btnEspecialidade;
     private Gson gson = new Gson();
     private static final String PREFS_NAME = "APP_PREFS";
     private static final String KEY_USUARIO = "usuario";
@@ -44,6 +44,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        editTextLogin = findViewById(R.id.editTextLogin);
+        editTextSenha = findViewById(R.id.editTextSenha);
+        btnDoSignIn = findViewById(R.id.btnDoSignIn);
+        btnToggle = findViewById(R.id.btnToggle);
+        btnEspecialidade = findViewById(R.id.btnEspecialidade);
+        btnEspecialidade.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SelecaoEspecialidadesActivity.class);
+            startActivity(intent);
+        });
+
+        // Botão Entrar
+        btnDoSignIn.setOnClickListener(v -> realizarLogin());
+
+        // Botão "Inscreva-se" leva para Cadastro
+        btnToggle.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CadastroUsuarioActivity.class);
+            startActivity(intent);
+        });
 
         // Se já existe usuário logado, vai direto para TelaInicialActivity
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -53,8 +73,6 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             return;
         }
-
-        setContentView(R.layout.activity_login);
 
         apiService = ApiClient.getApiService();
 
@@ -68,21 +86,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // Botão de login Google
         findViewById(R.id.btnLoginGoogle).setOnClickListener(v -> signInGoogle());
-
-        // Bind views
-        editTextLogin = findViewById(R.id.editTextLogin);
-        editTextSenha = findViewById(R.id.editTextSenha);
-        btnDoSignIn = findViewById(R.id.btnDoSignIn);
-        btnToggle = findViewById(R.id.btnToggle);
-
-        // Botão Entrar
-        btnDoSignIn.setOnClickListener(v -> realizarLogin());
-
-        // Botão "Inscreva-se" leva para Cadastro
-        btnToggle.setOnClickListener(v -> {
-            Intent intent = new Intent(this, CadastroUsuarioActivity.class);
-            startActivity(intent);
-        });
 
     }
 
