@@ -1,7 +1,9 @@
 package com.example.unnoapp.util;
 
 
+import com.example.unnoapp.modelo.ChangePasswordRequest;
 import com.example.unnoapp.modelo.Cliente;
+import com.example.unnoapp.modelo.EmailRequest;
 import com.example.unnoapp.modelo.GoogleLoginRequest;
 import com.example.unnoapp.modelo.HealthResponse;
 import com.example.unnoapp.modelo.Profissional;
@@ -33,8 +35,16 @@ public interface ApiService {
     @POST("usuarios/login")
     Call<Usuario> login(@Body UsuarioLogin credenciais);
 
-    @POST("usuarios/login") // <-- ajuste aqui
+    @POST("usuarios/login")
     Call<Usuario> login(@Body Usuario usuario);
+
+    // Enviar email para redefinição de senha
+    @POST("recuperar-senha/")
+    Call<Void> enviarEmailReset(@Body EmailRequest emailRequest);
+
+    // Alterar senha (com email, senha atual e nova senha)
+    @POST("usuarios/change-password")
+    Call<Void> trocarSenha(@Body ChangePasswordRequest changePasswordRequest);
 
     @GET("/usuarios")
     Call<List<Usuario>> getUsuarios();

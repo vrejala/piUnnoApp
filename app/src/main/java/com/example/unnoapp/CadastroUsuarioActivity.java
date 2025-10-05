@@ -3,9 +3,11 @@ package com.example.unnoapp;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -69,6 +71,10 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(v -> salvarUsuario());
         btnCancelar.setOnClickListener(v -> finish());
 
+        ImageView btnMostrarSenha;
+
+        btnMostrarSenha = findViewById(R.id.btnMostrarSenha);
+        configurarMostrarSenha(etSenha, btnMostrarSenha);
     }
 
     // =====================
@@ -154,4 +160,18 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+    private void configurarMostrarSenha(EditText campo, ImageView botao) {
+        botao.setOnClickListener(v -> {
+            if (campo.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                campo.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                botao.setImageResource(R.drawable.ic_eye);
+            } else {
+                campo.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                botao.setImageResource(R.drawable.ic_ey_offe);
+            }
+            campo.setSelection(campo.getText().length());
+        });
+    }
+
+  }

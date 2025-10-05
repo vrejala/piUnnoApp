@@ -56,6 +56,13 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // 👉 Aqui você coloca o clique no "Esqueceu sua senha?"
+        findViewById(R.id.textEsqueceuSenha).setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, EsqueciSenhaActivity.class);
+            startActivity(intent);
+        });
+
+
         // Botão Entrar
         btnDoSignIn.setOnClickListener(v -> realizarLogin());
 

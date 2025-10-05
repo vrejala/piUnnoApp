@@ -47,20 +47,24 @@ public class TelaInicialActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        // Cards
-        cardCadastroUsuario = findViewById(R.id.cardUsuario);
-        cardCadastroCliente = findViewById(R.id.cardCliente);
-        cardCadastroProfissional = findViewById(R.id.cardProfissional);
-        cardSelecaoEspecialidades = findViewById(R.id.cardEspecialidades);
+        // Define o ícone de usuário à esquerda
+        toolbar.setNavigationIcon(R.drawable.ic_gerenciar_preto);
 
-        // Clique nos cards
-        cardCadastroUsuario.setOnClickListener(v -> {
+        // Clique no ícone de usuário
+        toolbar.setNavigationOnClickListener(v -> {
             Intent intent = new Intent(TelaInicialActivity.this, CadastroUsuarioActivity.class);
             intent.putExtra("CadastroUsuario", "Usuario");
             intent.putExtra("modoEdicao", true);
             startActivity(intent);
         });
 
+
+        // Cards
+        cardCadastroCliente = findViewById(R.id.cardCliente);
+        cardCadastroProfissional = findViewById(R.id.cardProfissional);
+        cardSelecaoEspecialidades = findViewById(R.id.cardEspecialidades);
+
+        // Clique nos cards
         cardCadastroCliente.setOnClickListener(v -> {
             Intent intent = new Intent(TelaInicialActivity.this, CadastroClienteActivity.class);
             intent.putExtra("CadastroCliente", "Cliente");

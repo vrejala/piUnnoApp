@@ -16,15 +16,15 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="147dp"
-            android:layout_height="37dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="386dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
             android:background="#A8E6CF"
             android:textStyle="italic|bold"
             android:title=""
             android:titleTextColor="#1B5E20"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,23 +57,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvTelaInicial">
 
             <!-- Card Usuário -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardUsuario"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:background="#005D56"
-                    android:contentDescription="Cadastro de Usuário"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_usuario_fundo" />
-            </androidx.cardview.widget.CardView>
 
             <!-- Card Cliente -->
             <androidx.cardview.widget.CardView
