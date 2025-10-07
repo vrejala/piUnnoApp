@@ -39,7 +39,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
 
     private ImageView imgFotoUsuario;
     private Button btnFoto, btnSalvar, btnAlterar, btnExcluir;
-    private EditText etNome, etTelefone, etCpf, etEmail, etSenha;
+    private EditText etNome, etTelefone, etCpf, etEmail;
     private EditText etEndereco, etNumero, etCep;
     private static final String PREFS_NAME = "APP_PREFS";
     private static final String KEY_USUARIO = "usuario";
@@ -67,7 +67,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         etTelefone = findViewById(R.id.etTelefone);
         etCpf = findViewById(R.id.etCpf);
         etEmail = findViewById(R.id.etEmail);
-        etSenha = findViewById(R.id.etSenha);
         etEndereco = findViewById(R.id.etEndereco);
         etNumero = findViewById(R.id.etNumero);
         etCep = findViewById(R.id.etCep);
@@ -85,7 +84,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
             // Preenche com nome do usuário primeiro
             etNome.setText(usuarioLogado.getNome());
             etEmail.setText(usuarioLogado.getEmail());
-            etSenha.setText(usuarioLogado.getSenha());
 
             apiService.buscarClientePorUsuario(usuarioLogado.getId())
                     .enqueue(new Callback<Cliente>() {
@@ -167,10 +165,10 @@ public class CadastroClienteActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validarCampos(String nome, String telefone, String cpf, String email, String senha,
+    private boolean validarCampos(String nome, String telefone, String cpf, String email,
                                   String endereco, String numero, String cep) {
         if (nome.isEmpty() || telefone.isEmpty() || cpf.isEmpty() || email.isEmpty() ||
-                senha.isEmpty() || endereco.isEmpty() || numero.isEmpty() || cep.isEmpty()) {
+                endereco.isEmpty() || numero.isEmpty() || cep.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -187,12 +185,11 @@ public class CadastroClienteActivity extends AppCompatActivity {
         String telefone = etTelefone.getText().toString().trim();
         String cpf = etCpf.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
-        String senha = etSenha.getText().toString().trim();
         String endereco = etEndereco.getText().toString().trim();
         String numero = etNumero.getText().toString().trim();
         String cep = etCep.getText().toString().trim();
 
-        if (!validarCampos(nome, telefone, cpf, email, senha, endereco, numero, cep)) return null;
+        if (!validarCampos(nome, telefone, cpf, email, endereco, numero, cep)) return null;
 
         SharedPreferences prefs = getSharedPreferences("APP_PREFS", MODE_PRIVATE);
         String usuarioJson = prefs.getString("usuario_logado", null);
@@ -204,7 +201,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
             usuarioId = usuarioLogado.getId();
         }
 
-        Cliente c = new Cliente(nome, telefone, cpf, email, senha, endereco, numero, cep, usuarioId);
+        Cliente c = new Cliente(nome, telefone, cpf, email, endereco, numero, cep, usuarioId);
         return c;
     }
 
@@ -221,13 +218,12 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 RequestBody telefonePart = RequestBody.create(cliente.getTelefone(), MediaType.parse("text/plain"));
                 RequestBody cpfPart = RequestBody.create(cliente.getCpf(), MediaType.parse("text/plain"));
                 RequestBody emailPart = RequestBody.create(cliente.getEmail(), MediaType.parse("text/plain"));
-                RequestBody senhaPart = RequestBody.create(cliente.getSenha(), MediaType.parse("text/plain"));
                 RequestBody enderecoPart = RequestBody.create(cliente.getEndereco(), MediaType.parse("text/plain"));
                 RequestBody numeroPart = RequestBody.create(cliente.getNumero(), MediaType.parse("text/plain"));
                 RequestBody cepPart = RequestBody.create(cliente.getCep(), MediaType.parse("text/plain"));
                 MultipartBody.Part fotoPart = Util.createMultipartFromBitmap(bitmapFoto, "foto");
 
-                apiService.atualizarClienteComFoto(clienteIdAtual, nomePart, telefonePart, cpfPart, emailPart, senhaPart,
+                apiService.atualizarClienteComFoto(clienteIdAtual, nomePart, telefonePart, cpfPart, emailPart,
                                 enderecoPart, numeroPart, cepPart, fotoPart)
                         .enqueue(new Callback<Cliente>() {
                             @Override
@@ -268,13 +264,12 @@ public class CadastroClienteActivity extends AppCompatActivity {
                 RequestBody telefonePart = RequestBody.create(cliente.getTelefone(), MediaType.parse("text/plain"));
                 RequestBody cpfPart = RequestBody.create(cliente.getCpf(), MediaType.parse("text/plain"));
                 RequestBody emailPart = RequestBody.create(cliente.getEmail(), MediaType.parse("text/plain"));
-                RequestBody senhaPart = RequestBody.create(cliente.getSenha(), MediaType.parse("text/plain"));
                 RequestBody enderecoPart = RequestBody.create(cliente.getEndereco(), MediaType.parse("text/plain"));
                 RequestBody numeroPart = RequestBody.create(cliente.getNumero(), MediaType.parse("text/plain"));
                 RequestBody cepPart = RequestBody.create(cliente.getCep(), MediaType.parse("text/plain"));
                 MultipartBody.Part fotoPart = Util.createMultipartFromBitmap(bitmapFoto, "foto");
 
-                apiService.criarClienteComFoto(nomePart, telefonePart, cpfPart, emailPart, senhaPart,
+                apiService.criarClienteComFoto(nomePart, telefonePart, cpfPart, emailPart,
                                 enderecoPart, numeroPart, cepPart, fotoPart)
                         .enqueue(new Callback<Cliente>() {
                             @Override
@@ -349,7 +344,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         etTelefone.setText(c.getTelefone());
         etCpf.setText(c.getCpf());
         etEmail.setText(c.getEmail());
-        etSenha.setText(c.getSenha());
         etEndereco.setText(c.getEndereco());
         etNumero.setText(c.getNumero());
         etCep.setText(c.getCep());
@@ -418,7 +412,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         etTelefone.setText("");
         etCpf.setText("");
         etEmail.setText("");
-        etSenha.setText("");
         etEndereco.setText("");
         etNumero.setText("");
         etCep.setText("");

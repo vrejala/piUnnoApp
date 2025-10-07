@@ -1,5 +1,6 @@
 package com.example.unnoapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -47,7 +48,12 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(EsqueciSenhaActivity.this, "Email de redefinição enviado!", Toast.LENGTH_LONG).show();
-                    finish(); // volta para Login
+
+                    // Abrir ActivityChangePassword
+                    Intent intent = new Intent(EsqueciSenhaActivity.this, ChangePasswordActivity.class);
+                    intent.putExtra("modoReset", true);
+                    startActivity(intent);
+
                 } else {
                     Toast.makeText(EsqueciSenhaActivity.this, "Erro ao enviar email", Toast.LENGTH_SHORT).show();
                     try {

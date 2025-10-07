@@ -7,6 +7,7 @@ import com.example.unnoapp.modelo.EmailRequest;
 import com.example.unnoapp.modelo.GoogleLoginRequest;
 import com.example.unnoapp.modelo.HealthResponse;
 import com.example.unnoapp.modelo.Profissional;
+import com.example.unnoapp.modelo.ResetPasswordRequest;
 import com.example.unnoapp.modelo.Usuario;
 import com.example.unnoapp.modelo.UsuarioLogin;
 
@@ -39,8 +40,13 @@ public interface ApiService {
     Call<Usuario> login(@Body Usuario usuario);
 
     // Enviar email para redefinição de senha
-    @POST("recuperar-senha/")
+    @POST("recuperar-senha/solicitar/")
     Call<Void> enviarEmailReset(@Body EmailRequest emailRequest);
+
+    // Resetar senha com token
+    @POST("recuperar-senha/confirmar/")
+    Call<Void> confirmarReset(@Body ResetPasswordRequest request);
+
 
     // Alterar senha (com email, senha atual e nova senha)
     @POST("usuarios/change-password")
@@ -97,7 +103,6 @@ public interface ApiService {
             @Part("telefone") RequestBody telefone,
             @Part("cpf") RequestBody cpf,
             @Part("email") RequestBody email,
-            @Part("senha") RequestBody senha,
             @Part("endereco") RequestBody endereco,
             @Part("numero") RequestBody numero,
             @Part("cep") RequestBody cep,
@@ -159,7 +164,7 @@ public interface ApiService {
     @GET("profissionais/especialidade/{especialidade}")
     Call<List<Profissional>> getProfissionaisPorEspecialidade(@Path("especialidade") String especialidade);
 
-    Call<Cliente> criarClienteComFoto(RequestBody nomePart, RequestBody telefonePart, RequestBody cpfPart, RequestBody emailPart, RequestBody senhaPart, RequestBody enderecoPart, RequestBody numeroPart, RequestBody cepPart, MultipartBody.Part fotoPart);
+    Call<Cliente> criarClienteComFoto(RequestBody nomePart, RequestBody telefonePart, RequestBody cpfPart, RequestBody emailPart, RequestBody enderecoPart, RequestBody numeroPart, RequestBody cepPart, MultipartBody.Part fotoPart);
 
-    Call<Cliente> atualizarClienteComFoto(int clienteIdAtual, RequestBody nomePart, RequestBody telefonePart, RequestBody cpfPart, RequestBody emailPart, RequestBody senhaPart, RequestBody enderecoPart, RequestBody numeroPart, RequestBody cepPart, MultipartBody.Part fotoPart);
+    Call<Cliente> atualizarClienteComFoto(int clienteIdAtual, RequestBody nomePart, RequestBody telefonePart, RequestBody cpfPart, RequestBody emailPart, RequestBody enderecoPart, RequestBody numeroPart, RequestBody cepPart, MultipartBody.Part fotoPart);
 }
