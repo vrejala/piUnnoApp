@@ -38,7 +38,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 2;
 
     private ImageView imgFotoUsuario;
-    private Button btnFoto, btnSalvar, btnAlterar, btnExcluir;
+    private Button btnFoto, btnSalvar, btnAlterar;
     private EditText etNome, etTelefone, etCpf, etEmail;
     private EditText etEndereco, etNumero, etCep;
     private static final String PREFS_NAME = "APP_PREFS";
@@ -61,7 +61,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
         btnFoto = findViewById(R.id.btnFoto);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnAlterar = findViewById(R.id.btnAlterar);
-        btnExcluir = findViewById(R.id.btnExcluir);
+
 
         etNome = findViewById(R.id.etNome);
         etTelefone = findViewById(R.id.etTelefone);
@@ -120,7 +120,6 @@ public class CadastroClienteActivity extends AppCompatActivity {
         btnFoto.setOnClickListener(v -> escolherFoto());
         btnSalvar.setOnClickListener(v -> salvarOuAlterarCliente());
         btnAlterar.setOnClickListener(v -> abrirDialogBuscarCliente());
-        btnExcluir.setOnClickListener(v -> abrirDialogExcluirCliente());
     }
 
     private void escolherFoto() {

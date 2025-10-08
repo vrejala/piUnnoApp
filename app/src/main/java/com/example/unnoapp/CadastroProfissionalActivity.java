@@ -41,7 +41,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 2;
 
     private ImageView imgFotoProfissional;
-    private Button btnFoto, btnSalvar, btnAlterar, btnExcluir;
+    private Button btnFoto, btnSalvar, btnAlterar;
     private EditText etNome, etCadastroProfissional, etEmail, etTelefone, etSobre, etValor;
     private Spinner spEspecialidade, spAbordagem, spTipoPagamento;
     private Switch swStatus;
@@ -49,11 +49,35 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
 
     private Uri imageUri;
     private Bitmap bitmapFoto;
+    private TabHost tabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_profissional);
+
+
+        // Inicializar o TabHost
+        tabHost = findViewById(R.id.tabhost);
+        tabHost.setup();
+
+        // Adicionar Guia 1
+        TabHost.TabSpec spec = tabHost.newTabSpec("Tab One");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Informação \nPessoal");
+        tabHost.addTab(spec);
+
+        // Adicionar Guia 2
+        spec = tabHost.newTabSpec("Tab Two");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Informação Profissional");
+        tabHost.addTab(spec);
+
+        // Definir a guia padrão (opcional)
+        tabHost.setCurrentTab(0);
+
+
+
 
         // Bind views
         imgFotoProfissional = findViewById(R.id.imgFotoProfissional);
@@ -99,9 +123,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
         btnFoto.setOnClickListener(v -> escolherFoto());
         btnSalvar.setOnClickListener(v -> salvarOuAlterarProfissional());
         btnAlterar.setOnClickListener(v -> abrirDialogBuscarProfissional());
-        btnExcluir = findViewById(R.id.btnExcluir);
-        btnExcluir.setOnClickListener(v -> abrirDialogExcluirProfissional());
-    }
+        }
 
     private void escolherFoto() {
         String[] options = {"Tirar foto", "Escolher da galeria"};
