@@ -76,7 +76,7 @@ public class TelaInicialActivity extends AppCompatActivity {
             } else if (id == R.id.nav_empresa) {
                 startActivity(new Intent(TelaInicialActivity.this, EmpresaActivity.class));
             } else if (id == R.id.nav_instagram) {
-                abrirInstagram("seu_usuario");
+                abrirInstagram("https://www.instagram.com/unnopsicologiaenutricao/");
             } else if (id == R.id.nav_logout) {
                 logout();
             }

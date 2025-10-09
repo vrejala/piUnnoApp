@@ -64,7 +64,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
         // Adicionar Guia 1
         TabHost.TabSpec spec = tabHost.newTabSpec("Tab One");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Informação \nPessoal");
+        spec.setIndicator("Informação \n Pessoal");
         tabHost.addTab(spec);
 
         // Adicionar Guia 2
